@@ -17,4 +17,10 @@ router.route('/posts/:cuid').put(PostController.editPost);
 // Delete a post by cuid
 router.route('/posts/:cuid').delete(PostController.deletePost);
 
+// Like post by cuid
+router.route('/posts/like/:cuid').put(PostController.likePost);
+
+// Dislike post by cuid
+router.route('/posts/dislike/:cuid').put(PostController.dislikePost);
+
 export default router;
