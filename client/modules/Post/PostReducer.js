@@ -1,4 +1,11 @@
-import { ADD_POST, EDIT_POST, ADD_POSTS, DELETE_POST } from "./PostActions";
+import {
+  ADD_POST,
+  EDIT_POST,
+  ADD_POSTS,
+  DELETE_POST,
+  LIKE_POST,
+  DISLIKE_POST
+} from "./PostActions";
 
 // Initial State
 const initialState = { data: [] };
@@ -27,6 +34,24 @@ const PostReducer = (state = initialState, action) => {
     case DELETE_POST:
       return {
         data: state.data.filter(post => post.cuid !== action.cuid)
+      };
+
+    case LIKE_POST:
+      return {
+        data: state.data.map(post => {
+          return post.cuid === action.cuid
+            ? Object.assign({}, post, { votes: post.votes + 1 })
+            : post;
+        })
+      };
+
+    case DISLIKE_POST:
+      return {
+        data: state.data.map(post => {
+          return post.cuid === action.cuid
+            ? Object.assign({}, post, { votes: post.votes - 1 })
+            : post;
+        })
       };
 
     default:

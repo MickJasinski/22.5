@@ -11,6 +11,8 @@ function PostList(props) {
           post={post}
           key={post.cuid}
           onDelete={() => props.handleDeletePost(post.cuid)}
+          likePost={() => props.likePost(post.cuid)}
+          dislikePost={() => props.dislikePost(post.cuid)}
         />
       ))}
     </div>
@@ -27,7 +29,9 @@ PostList.propTypes = {
       cuid: PropTypes.string.isRequired
     })
   ).isRequired,
-  handleDeletePost: PropTypes.func.isRequired
+  handleDeletePost: PropTypes.func.isRequired,
+  likePost: PropTypes.func.isRequired,
+  dislikePost: PropTypes.func.isRequired
 };
 
 export default PostList;
