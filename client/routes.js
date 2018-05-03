@@ -18,8 +18,8 @@ if (process.env.NODE_ENV !== 'production') {
   // Require async routes only in development for react-hot-reloader to work.
   require('./modules/Post/pages/PostListPage/PostListPage');
   require('./modules/Post/pages/PostDetailPage/PostDetailPage');
-  require('./modules/Home/Home')
-  reqire('.modules/About/About');
+  require('./modules/Home/Home');
+  // require('.modules/About/About');
 }
 
 // react-router setup with code-splitting
