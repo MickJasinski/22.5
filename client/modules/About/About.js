@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 // Import Style
 // import styles from './About.css';
 
-class Home extends Component {
+class About extends Component {
   render() {
     return (
       <div>
