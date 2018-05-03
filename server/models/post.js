@@ -8,8 +8,9 @@ const postSchema = new Schema({
 	slug: { type: "String", required: true },
 	cuid: { type: "String", required: true },
 	dateAdded: { type: "Date", default: Date.now, required: true },
-	likePost: { type: "Number", default: 0, required: true },
-	dislikePost: { type: "Number", default: 0, required: true }
+	// likePost: { type: "Number", default: 0, required: true },
+	// dislikePost: { type: "Number", default: 0, required: true },
+	votes: { type: "Number", default: 0 }
 });
 
 export default mongoose.model("Post", postSchema);

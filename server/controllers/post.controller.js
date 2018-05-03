@@ -94,24 +94,22 @@ export function deletePost(req, res) {
 
 // Like post
 export function likePost(req, res) {
-  Post.update({ cuid: req.params.cuid }, { $inc: { votes: 1 } }).exec(
-    (err, post) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.json({ post });
+  Post.findOneAndUpdate({ cuid: req.params.cuid }, { $inc: { votes: 1 } }, err => {
+    if (err) {
+      return res.status(500).send(err);
     }
-  );
+ 
+    return res.status(200).end();
+  });
 }
 
 // Dislike post
 export function dislikePost(req, res) {
-  Post.update({ cuid: req.params.cuid }, { $inc: { votes: -1 } }).exec(
-    (err, post) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      res.json({ post });
+  Post.findOneAndUpdate({ cuid: req.params.cuid }, { $inc: { votes: -1 } }, err => {
+    if (err) {
+      return res.status(500).send(err);
     }
-  );
+ 
+    return res.status(200).end();
+  });
 }
