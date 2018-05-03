@@ -24,7 +24,7 @@ function PostListItem(props) {
       </p>
       <div>
         <button onClick={props.likePost}> + </button>
-        {/*&nbsp; {props.post.votes} &nbsp;*/}
+        &nbsp; {props.post.votes} &nbsp;
         <button onClick={props.dislikePost}> - </button>
       </div>
       <hr className={styles.divider} />
